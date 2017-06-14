@@ -1,0 +1,351 @@
+<!--Bugs :
+ 1. Colored circles dont appear as they should in mobile. FIXED
+ 2. the score doesn't work and show. FIXED.
+ 3. Rules are not displayed. FIXED
+ 4. There is no buzzer for wrong sequence played. FIXED
+ 5. User can't stop the game in between.
+ 6. Remove strict for this version. May be do it in v2. FIXED.
+ 7. 
+ 
+   
+
+
+-->
+
+<html>
+<head>
+<title>Play Simon</title>
+ <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:black;background-image:url('https://s-media-cache-ak0.pinimg.com/originals/8d/6d/b1/8d6db1df4450e8be8a93c3de3fbd2a80.jpg');" onload="init()">
+<style>
+
+h1{
+margin-top:10px;
+margin-bottom:10px;
+color:white;
+font-family:Lobster;
+font-size:50px;
+}
+#finalMsg{
+margin-top:10px;
+margin-bottom:10px;
+color:white;
+font-family:Lobster;
+font-size:20px;
+}
+.arr{
+margin-bottom:10px;
+}
+
+</style>
+<div class="container text-center">
+<h1>Simon Game</h1>
+<div class="row">
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+<button id="btnRed" style="border:10px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:firebrick;border-style:solid;" onclick="highlightFor(this.id,'red',0.3)"></button>
+<audio id="audio1" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" ></audio>
+<button id="btnGreen"  style="border:10px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:green;border-style:solid;" onclick="highlightFor(this.id,'lime',0.3)"></button>
+<audio id="audio2" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" ></audio>
+
+</div>
+<div class="col-xs-2"></div>
+
+</div>
+<div class="row" style="margin-bottom:10px;">
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+<button id="btnBlue"  style="border:10px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:indigo;border-style:solid;" onclick="highlightFor(this.id,'blue',0.3)"></button>
+<audio id="audio3" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" ></audio>
+<button id="btnYellow"  style="border:10px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:goldenrod;border-style:solid;" onclick="highlightFor(this.id,'yellow',0.3)"></button>
+<audio id="audio4" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" ></audio>
+</div>
+<div class="col-xs-2"></div>
+
+</div>
+
+
+<div class="row" style="margin-bottom:10px;">
+<div class="col-xs-4"></div>
+<div class="col-xs-4">
+<input  id="input" type="text" class="text-center" style="border:5px;height:50px;width:50px;border-color:white;background-color:brown;border-style:solid;color:black;border-radius:5px;font-size:20px;font-weight:bold;" readonly></button>
+
+</div>
+<div class="col-xs-4"></div>
+</div>
+<div class="row" style="margin-bottom:10px;">
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+<button id="btnStart"  style="border:5px;height:auto;width:auto;border-color:white;border-radius:10px;background-color:black;border-style:solid;color:white;margin-left:5px;margin-right:5px;font-size:25px;" onclick="start()">Start</button>
+<button id="btnRules"  data-toggle="modal" data-target="#rules" style="border:5px;height:auto;width:auto;border-color:white;border-radius:10px;background-color:black;border-style:solid;color:white;margin-left:5px;margin-right:5px;font-size:25px;" onclick="rules()">Rules</button>
+
+</div>
+<div class="col-xs-2"></div>
+</div>
+
+<div class="row" style="margin-bottom:10px;">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+<p id="finalMsg"></p>
+<audio id="audio5" src="http://audiosoundclips.com/wp-content/uploads/2011/12/Beep2.mp3" ></audio>
+
+</div>
+<div class="col-xs-1"></div>
+</div>
+<div class="row text-center" style="margin-top:10px;">
+<div class="col-xs-12">
+<p style="font-weight:bold;color:white"><i class="fa fa-copyright" aria-hidden="true"></i>KaushikCodeArts : App by Piyush Kaushik</p>
+</div>
+</div>
+  <div class="row text-center">
+                <div class="col-xs-12">
+				<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://codepen.io/Kaushik02/full/mAwGWQ/" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:blue;font-size:30px;font-weight:bold;"></i></a>
+                <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://codepen.io/Kaushik02/full/mAwGWQ/"><i class="fa fa-whatsapp" aria-hidden="true" style="color:Green;font-size:30px;font-weight:bold;"></i></a>
+        		<a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://codepen.io/Kaushik02/full/mAwGWQ/" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:skyblue;font-size:30px;font-weight:bold;"></i></a>
+                </div>
+        </div>
+</div>
+
+<!-- Rules Modal -->
+  <div class="modal fade" id="rules" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Simon Game : Quick rules </h4>
+        </div>
+        <div class="modal-body">
+          
+		  <p>1. This is a memory based game. Objective of the game is to recognise as much color patterns as displayed.</p>
+		  <p>2. Player begins the game by clicking 'Start' button.</p>
+		  <p>3. The App will glow a random circular colored tile.</p>
+		  <p>4. Player has to remember and tap on the same colored tile.</p>
+		  <p>5. Once correct tile is tapped, the game is advanced into next level.</p>
+		  <p>6. In each increasing level, player will have to remember one tile more from previous level.</p>
+		  <p>7. E.g. Level 1 --> 1 tile. Level 2 --> 2 tiles and so on..</p>
+		  <p>8. Win 9 levels to prove you're genius.</p>
+		  <p>9. Win 10th and last level to prove you're memory God !!.</p>
+		  <p>10. Any wrong sequence tapped by user will end in buzzer sound indicating game over.</p>
+		  <p>11. Player can view their score and level at any moment during the play.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+<script>
+var arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow"];
+var rand;
+var playAICount=1;
+var playHumanCount=0;
+var playAIArray=[];
+var playHumanArray=[];
+var buttonPressed=0;
+var clickedId="";
+var flag;
+var score;
+var t, t1, t2;
+
+function init(){
+document.getElementById("btnBlue").disabled= true;
+document.getElementById("btnRed").disabled= true;
+document.getElementById("btnGreen").disabled= true;
+document.getElementById("btnYellow").disabled= true;
+document.getElementById("finalMsg").innerHTML="";
+
+document.getElementById("input").value='--';
+document.getElementById("input").disabled=true;
+document.getElementById("btnStart").innerHTML="Start";
+/*<!--document.getElementById("btnStrict").style.background="black";
+document.getElementById("btnStrict").disabled = false; */
+arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow"];
+rand=0;
+playAICount=1;
+playHumanCount=0;
+playAIArray=[];
+playHumanArray=[];
+buttonPressed=0;
+clickedId="";
+flag=false;
+clearInterval(t);
+clearInterval(t1);
+}
+
+function start(){
+
+if(document.getElementById("btnStart").innerHTML==="Start"){
+document.getElementById("btnBlue").disabled= false;
+document.getElementById("btnRed").disabled= false;
+document.getElementById("btnGreen").disabled= false;
+document.getElementById("btnYellow").disabled= false;
+document.getElementById("btnStart").innerHTML="Stop";
+//document.getElementById("btnStrict").disabled = true;
+document.getElementById("input").disabled=false;
+document.getElementById("input").value='00';
+playAIArray=[];
+playHumanArray=[];
+playAI();
+}
+else if(document.getElementById("btnStart").innerHTML==="Stop"){
+init();
+}
+
+else if(document.getElementById("btnStart").innerHTML==="Restart"){
+init();
+}
+
+
+}
+
+function rules(){
+//document.getElementById("btnStrict").style.background="orange";
+}
+
+function playAI(){
+playAIArray=[];
+if(playAICount===10){
+console.log("game over");
+document.getElementById("finalMsg").innerHTML="Hello Genius !! Now prove you're God !!";
+document.getElementById("btnStart").click();
+}
+else
+console.log("now AI's turn to play");
+sequence(playAICount, function(){
+ console.log('playAIArray is : ');
+console.log(playAIArray);
+playHuman();
+});
+}
+
+
+function waitForHumanToClick(val, callback){
+var x=0;
+t = setInterval(function(){
+console.log("waiting for user to click the damn button");
+if(buttonPressed===1){ //change this condition to acknowledge button press
+
+playHumanArray.push(clickedId);
+x++;
+buttonPressed=0;
+console.log("x : " + x);
+console.log("buttonPressed : "+buttonPressed);
+if(x >= val){
+clearInterval(t);
+callback && callback();
+}
+}
+ },(500));
+} 
+
+function playHuman(){
+playHumanArray=[];
+buttonPressed=0;
+console.log("now human's turn to play");
+waitForHumanToClick(playAICount,  function(){
+test();
+});
+}
+
+function test(){
+console.log("playAIArray length is : "+playAIArray.length);
+console.log('playAIArray is : ');
+console.log(playAIArray);
+console.log("playHumanArray length is : "+playHumanArray.length);
+console.log("playHumanArray is : ");
+console.log(playHumanArray);
+for(var i=0;i<playAIArray.length;i++){
+if(playAIArray[i]===playHumanArray[i]){
+flag=true;
+}
+else{
+flag=false;
+}
+}
+console.log("compare flag is :" + flag);
+if((playHumanArray.length===playAIArray.length) && (flag===true)){
+console.log("round # "+playAICount+" clear. Proceed to next round"); // feed scoring here
+document.getElementById("finalMsg").innerHTML="Level # " + playAICount + " cleared . !!"
+document.getElementById("input").value='0'+playAICount;
+playAICount++;
+playAI();
+}
+else if((playHumanArray.length===playAIArray.length) && (flag!=true)){
+console.log("human loses"); //feed losing buzzer here
+document.getElementById("finalMsg").innerHTML="Haha !! That is wrong !!";
+var audio = document.getElementById("audio5");
+       audio.play();
+document.getElementById("input").value='--';
+document.getElementById("btnStart").innerHTML="Restart";
+}
+}
+
+function sequence(val, callback){
+//works like charm inside this // comment
+var counter=0;
+t1 = setInterval(function(){
+rand=getRandomBtnId(0,3);
+document.getElementById(arrBtnIds[rand]).click();
+
+playAIArray.push(arrBtnIds[rand]);
+counter++;
+buttonPressed=0;
+if(counter>=val){ //changed 10 to i
+clearInterval(t1);
+callback && callback();
+}
+    },(1000));   //sequence will run a bit slow i.e. every 2500 milliseconds, it will be reduuced after every 4 sequences i.e. 5th sequence will be faster, 9th will be fastest. 
+// charming code ;)
+}
+
+function getRandomBtnId(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function highlightFor(id,color,seconds){
+ buttonPressed=1;
+ clickedId=id;
+ console.log(clickedId);
+    var element = document.getElementById(id);
+    var origcolor = element.style.backgroundColor;
+    element.style.backgroundColor = color;
+	//
+	switch(id){
+	case "btnRed":
+	var audio = document.getElementById("audio1");
+       audio.play();
+	   break;
+	case "btnGreen":
+	var audio = document.getElementById("audio2");
+       audio.play();
+	   break;
+	   case "btnBlue":
+	var audio = document.getElementById("audio3");
+       audio.play();
+	   break;
+	   case "btnYellow":
+	var audio = document.getElementById("audio4");
+       audio.play();
+	   break;
+	   
+	}
+	//
+    t2 = setTimeout(function(){
+       element.style.backgroundColor = origcolor;
+    },(seconds*1000));
+}
+</script>
+</body>
+</html>
