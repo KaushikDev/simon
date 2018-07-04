@@ -15,7 +15,7 @@
    
    <preference name = "permissions" value = "none"/>
    
-   <icon src = "res\icon\android\mipmap-ldpi\ic_launcher.png" 
+ <!--   <icon src = "res\icon\android\mipmap-ldpi\ic_launcher.png" 
       gap:platform = "android" gap:qualifier = "ldpi" />
 		
    <icon src = "res\icon\android\mipmap-mdpi\ic_launcher.png" 
@@ -30,5 +30,6 @@
    <icon src = "res\icon\android\mipmap-xxhdpi\ic_launcher.png"
       gap:platform = "android" gap:qualifier = "xxhdpi" />
    
+-->
       
 </widget>
