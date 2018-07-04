@@ -1,33 +1,32 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.kaushikdev.SimonGame"
+    versionCode = "10"
+    version     = "1.0.0" >
 
-<widget xmlns = "http://www.w3.org/ns/widgets" 
-   xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.kaushikDev.SimonGame" version = "1.0">
-   
-   <name>Simon Game</name>
-   
-   <description>
-      Classic Simon Game!!
-   </description>
-   
-   <author href = "https://codepen.io/Kaushik02/full/BKjBpw/" email = "piyush.kaushik02@gmail.com">
-      KaushikDev
-   </author>
-   
-   <preference name = "permissions" value = "none"/>
-   
-   <icon src = "res\mipmap-ldpi\ic_launcher.png" 
-      gap:platform = "android" gap:qualifier = "xxxhdpi" />
-		
-   <icon src = "res\mipmap-mdpi\ic_launcher.png" 
-      gap:platform = "android" gap:qualifier = "mdpi" />
-		
-   <icon src = "res\mipmap-hdpi\ic_launcher.png" 
-      gap:platform = "android" gap:qualifier = "hdpi" />
-		
-   <icon src = "res\mipmap-xhdpi\ic_launcher.png" 
-      gap:platform = "android" gap:qualifier = "xhdpi" />
-		
-   <icon src = "res\mipmap-xxhdpi\ic_launcher.png"
-      gap:platform = "android" gap:qualifier = "xxhdpi" />
-      
+<!-- versionCode is optional and Android only -->
+
+  <name>SimonGame</name>
+  <platform name="ios" />
+  <platform name="android" />
+  <platform name="winphone" />
+  <description>
+      Brain workout!!
+  </description>
+
+  <author href="https://kaushikdev.github.io/portfolio" email="piyush.kaushik02@gmail.com">
+      Piyush Kaushik
+  </author>
+<!--   <icon src="ldpi.png" platform="android" qualifier="ldpi" /> -->
+<platform name="android">
+	<icon density="hdpi" src="res/mipmap-hdpi/ic_launcher.png" />
+	<icon density="ldpi" src="res/mipmap-ldpi/ic_launcher.png" />
+	<icon density="mdpi" src="res/mipmap-mdpi/ic_launcher.png" />
+	<icon density="xhdpi" src="res/mipmap-xhdpi/ic_launcher.png" />
+	<icon density="xxhdpi" src="res/mipmap-xxhdpi/ic_launcher.png" />
+	<icon density="xxxhdpi" src="res/mipmap-xxxhdpi/ic_launcher.png" />
+	
+</platform>
+
 </widget>
