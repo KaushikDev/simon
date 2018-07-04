@@ -15,21 +15,19 @@
    
    <preference name = "permissions" value = "none"/>
    
- <!--   <icon src = "res\icon\android\mipmap-ldpi\ic_launcher.png" 
-      gap:platform = "android" gap:qualifier = "ldpi" />
+   <icon src = "res\mipmap-ldpi\ic_launcher.png" 
+      gap:platform = "android" gap:qualifier = "xxxhdpi" />
 		
-   <icon src = "res\icon\android\mipmap-mdpi\ic_launcher.png" 
+   <icon src = "res\mipmap-mdpi\ic_launcher.png" 
       gap:platform = "android" gap:qualifier = "mdpi" />
 		
-   <icon src = "res\icon\android\mipmap-hdpi\ic_launcher.png" 
+   <icon src = "res\mipmap-hdpi\ic_launcher.png" 
       gap:platform = "android" gap:qualifier = "hdpi" />
 		
-   <icon src = "res\icon\android\mipmap-xhdpi\ic_launcher.png" 
+   <icon src = "res\mipmap-xhdpi\ic_launcher.png" 
       gap:platform = "android" gap:qualifier = "xhdpi" />
 		
-   <icon src = "res\icon\android\mipmap-xxhdpi\ic_launcher.png"
+   <icon src = "res\mipmap-xxhdpi\ic_launcher.png"
       gap:platform = "android" gap:qualifier = "xxhdpi" />
-   
--->
       
 </widget>
