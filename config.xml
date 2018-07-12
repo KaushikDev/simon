@@ -18,6 +18,25 @@
   <author href="https://kaushikdev.github.io/portfolio" email="piyush.kaushik02@gmail.com">
       Piyush Kaushik
   </author>
+  
+  
+  <!-- adding intents -->
+  
+    <access origin="*"/>
+    <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
+    <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+	<allow-intent href="whatsapp:*" />
+	
+	
+	 <!-- adding preferences -->
+	  <preference name="permissions" value="none"/>
+	  <preference name="show-splash-screen-spinner" value="true" />          
+	  <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+  
+  
 <!--   <icon src="ldpi.png" platform="android" qualifier="ldpi" /> -->
 <platform name="android">
 	<icon density="hdpi" src="res/mipmap-hdpi/ic_launcher.png" />
