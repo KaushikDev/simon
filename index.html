@@ -9,95 +9,121 @@
     <script src="jquery-3.2.1.min.js"></script>
     <script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color:black;" onload="init()">
+<body onload="init()">
 <style>
-
-h1{
-margin-top:10px;
-margin-bottom:10px;
-color:white;
-font-size:50px;
-}
-#finalMsg{
-margin-top:10px;
-margin-bottom:10px;
-color:white;
-font-family:Lobster;
+body{
+background-color:black;
 font-size:20px;
-}
-.arr{
-margin-bottom:10px;
+color:white;
 }
 
+
+.shareButton{
+border-color:transparent;background-color:transparent;font-size:20px;color:white;
+} 
+
+.btnTile{
+border:5px;width:125px;height:125px;border-color:white;border-style:solid;
+}
+
+#btnRed{
+background-color:firebrick;
+}
+#btnGreen{
+background-color:green;
+}
+#btnYellow{
+background-color:goldenrod;
+}
+#btnBlue{
+background-color:indigo;
+}
+
+#scoreInput{
+border-radius:5px;height:50px;width:250px;border-color:white;border-style:solid;text-align:center;background-color:transparent;
+}
+
+.btnControl{
+border-color:white;border-radius:5px;background-color:transparent;border-style:solid;height:50px;width:100px;font-size:25px;
+}
+
+.rowMargins{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+.modal-content{
+color:black;
+}
 </style>
-<div class="container text-center">
-<h1>Simon Game</h1>
-<div class="row" style="margin-top:50px;">
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
-<button id="btnRed" style="border:5px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:firebrick;border-style:solid;" onclick="highlightFor(this.id,'red',0.3)"></button>
-<audio id="audio1" src="simonSound1.mp3" ></audio>
-<button id="btnGreen"  style="border:5px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:green;border-style:solid;" onclick="highlightFor(this.id,'lime',0.3)"></button>
-<audio id="audio2" src="simonSound2.mp3" ></audio>
-
-</div>
-<div class="col-xs-2"></div>
-
-</div>
-<div class="row" style="margin-bottom:10px;">
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
-<button id="btnBlue"  style="border:5px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:indigo;border-style:solid;" onclick="highlightFor(this.id,'blue',0.3)"></button>
-<audio id="audio3" src="simonSound3.mp3" ></audio>
-<button id="btnYellow"  style="border:5px;height:100px;width:100px;border-color:white;border-radius:50px;background-color:goldenrod;border-style:solid;" onclick="highlightFor(this.id,'yellow',0.3)"></button>
-<audio id="audio4" src="simonSound4.mp3" ></audio>
-</div>
-<div class="col-xs-2"></div>
-
-</div>
-
-
-<div class="row" style="margin-bottom:10px;">
-<div class="col-xs-4"></div>
-<div class="col-xs-4">
-<input  id="input" type="text" class="text-center" style="border:5px;height:50px;width:70px;border-color:white;background-color:skyblue;border-style:solid;color:black;border-radius:5px;font-size:30px;font-weight:bold;" readonly></button>
-
-</div>
-<div class="col-xs-4"></div>
-</div>
-<div class="row" style="margin-bottom:10px;">
-<div class="col-xs-2"></div>
-<div class="col-xs-8">
-<button id="btnStart"  style="border:5px;height:auto;width:auto;border-color:white;border-radius:10px;background-color:black;border-style:solid;color:white;margin-left:5px;margin-right:5px;font-size:25px;" onclick="start()">Start</button>
-<button id="btnRules"  data-toggle="modal" data-target="#rules" style="border:5px;height:auto;width:auto;border-color:white;border-radius:10px;background-color:black;border-style:solid;color:white;margin-left:5px;margin-right:5px;font-size:25px;" onclick="rules()">Rules</button>
-
-</div>
-<div class="col-xs-2"></div>
-</div>
-
-<div class="row" style="margin-bottom:10px;">
-<div class="col-xs-1"></div>
-<div class="col-xs-10">
-<p id="finalMsg"></p>
-<audio id="audio5" src="Beep2.mp3" ></audio>
-
-</div>
-<div class="col-xs-1"></div>
-</div>
-
-  <div class="row text-center">
-                <div class="col-xs-12">
-		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/simonGame" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-        <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://KaushikDev.github.io/simonGame"><i class="fa fa-whatsapp" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-        <a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/simonGame" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-                </div>
-        </div>
+<div class="container">
+	<div class="row text-center">
+	<h1>Simon Game</h1>
+	</div>
+	<div class="row text-center">
+		<div class="col-xs-12">
+			<button class="btn btnTile" id="btnRed" onclick="highlightFor(this.id,'red',0.3)"></button>
+			<audio id="audio1" src="simonSound1.mp3" ></audio>
+			
+			<button class="btn btnTile" id="btnGreen" onclick="highlightFor(this.id,'lime',0.3)"></button>
+			<audio id="audio2" src="simonSound2.mp3" ></audio>
+		</div>
+	</div>
 	
-	<div class="row text-center" style="margin-top:10px;">
-<div class="col-xs-12">
-<a href="https://kaushikdev.github.io/portfolio/" target="_blank" style="color:white;"><i class="fa fa-copyright" aria-hidden="true" style="color:white;font-size:15px;"></i>KaushikCodeArts 2018</a>
-</div>
-</div>
+	<div class="row text-center">
+		<div class="col-xs-12">
+			<button class="btn btnTile" id="btnBlue" onclick="highlightFor(this.id,'blue',0.3)"></button>
+			<audio id="audio3" src="simonSound3.mp3" ></audio>
+			
+			<button class="btn btnTile" id="btnYellow" onclick="highlightFor(this.id,'yellow',0.3)"></button>
+			<audio id="audio4" src="simonSound4.mp3" ></audio>
+		</div>
+	</div>
+
+
+	<div id="scoreSection" class="row text-center rowMargins">
+		<div class="col-xs-12">
+			<input id="scoreInput" type="text" readonly></input>	
+		</div>
+	</div>
+
+	<div id="buttonSection" class="row text-center rowMargins">
+		<div class="col-xs-12">
+			<button class="btn btnControl" id="btnStart" onclick="start()">Start</button>
+			<button class="btn btnControl" id="btnRules"  data-toggle="modal" data-target="#rules" onclick="rules()">Rules</button>
+		</div>
+	</div>
+
+	<div id="resultSection" class="row text-center rowMargins">
+		<div class="col-xs-12">
+			<p id="finalMsg"></p>
+			<audio id="audio5" src="Beep2.mp3" ></audio>
+		</div>
+	</div>
+
+    <div id="footerSection" class="row text-center rowMargins">
+         <div style="margin: 20px 0;">
+					<a id="fb" class="btn btn-default shareButton" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-facebook"></i>
+			</a>
+			<a id="wa" class="btn btn-default shareButton" href="whatsapp://send?text=https://KaushikDev.github.io/simonGame" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-whatsapp"></i>
+			</a>
+			<a id="tw" class="btn btn-default shareButton" href="https://twitter.com/home?status=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-twitter" ></i>
+			</a>
+			<a id="li" class="btn btn-default shareButton" href="
+https://www.linkedin.com/shareArticle?url=https://KaushikDev.github.io/simonGame&title=simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-linkedin" ></i>
+			</a>
+			<a id="ma" class="btn btn-default shareButton" href="mailto:?subject=simonGame.&amp;body=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-envelope-o" ></i>
+			</a>
+			
+			</div>
+			 <p><i class="fa fa-copyright"></i>KaushikCodeArts 2019</p>
+	</div>
+	
 </div>
 
 <!-- Rules Modal -->

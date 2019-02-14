@@ -17,11 +17,10 @@ document.getElementById("btnGreen").disabled= true;
 document.getElementById("btnYellow").disabled= true;
 document.getElementById("finalMsg").innerHTML="";
 
-document.getElementById("input").value='--';
-document.getElementById("input").disabled=true;
+document.getElementById("scoreInput").value='--';
+document.getElementById("scoreInput").disabled=true;
 document.getElementById("btnStart").innerHTML="Start";
-/*<!--document.getElementById("btnStrict").style.background="black";
-document.getElementById("btnStrict").disabled = false; */
+
 arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow"];
 rand=0;
 playAICount=1;
@@ -44,8 +43,8 @@ document.getElementById("btnGreen").disabled= false;
 document.getElementById("btnYellow").disabled= false;
 document.getElementById("btnStart").innerHTML="Stop";
 //document.getElementById("btnStrict").disabled = true;
-document.getElementById("input").disabled=false;
-document.getElementById("input").value='00';
+document.getElementById("scoreInput").disabled=false;
+document.getElementById("scoreInput").value='00';
 playAIArray=[];
 playHumanArray=[];
 playAI();
@@ -129,7 +128,7 @@ console.log("compare flag is :" + flag);
 if((playHumanArray.length===playAIArray.length) && (flag===true)){
 console.log("round # "+playAICount+" clear. Proceed to next round"); // feed scoring here
 document.getElementById("finalMsg").innerHTML="Level # " + playAICount + " cleared . !!"
-document.getElementById("input").value='0'+playAICount;
+document.getElementById("scoreInput").value='0'+playAICount;
 playAICount++;
 playAI();
 }
@@ -138,7 +137,7 @@ console.log("human loses"); //feed losing buzzer here
 document.getElementById("finalMsg").innerHTML="Haha !! That is wrong !!";
 var audio = document.getElementById("audio5");
        audio.play();
-document.getElementById("input").value='--';
+document.getElementById("scoreInput").value='--';
 document.getElementById("btnStart").innerHTML="Restart";
 }
 }
