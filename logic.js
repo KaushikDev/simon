@@ -134,7 +134,7 @@ playAI();
 }
 else if((playHumanArray.length===playAIArray.length) && (flag!=true)){
 console.log("human loses"); //feed losing buzzer here
-document.getElementById("finalMsg").innerHTML="Haha !! That is wrong !!";
+document.getElementById("finalMsg").innerHTML="Oops !! That is wrong !! Try again.";
 var audio = document.getElementById("audio5");
        audio.play();
 document.getElementById("scoreInput").value='--';

@@ -15,15 +15,16 @@ body{
 background-color:black;
 font-size:20px;
 color:white;
+padding-top:50px;
 }
 
 
 .shareButton{
-border-color:transparent;background-color:transparent;font-size:20px;color:white;
+border-color:transparent;background-color:transparent;font-size:20px;color:black;
 } 
 
 .btnTile{
-border:5px;width:125px;height:125px;border-color:white;border-style:solid;
+border:5px;width:40%;height:125px;border-color:white;border-style:solid;
 }
 
 #btnRed{
@@ -40,11 +41,11 @@ background-color:indigo;
 }
 
 #scoreInput{
-border-radius:5px;height:50px;width:250px;border-color:white;border-style:solid;text-align:center;background-color:transparent;
+border-radius:5px;height:50px;width:80%;border-color:white;border-style:solid;text-align:center;background-color:transparent;
 }
 
 .btnControl{
-border-color:white;border-radius:5px;background-color:transparent;border-style:solid;height:50px;width:100px;font-size:25px;
+border-color:white;border-radius:5px;background-color:transparent;border-style:solid;height:50px;width:25%;font-size:15px;
 }
 
 .rowMargins{
@@ -55,11 +56,12 @@ margin-bottom:20px;
 .modal-content{
 color:black;
 }
+
+
 </style>
 <div class="container">
-	<div class="row text-center">
-	<h1>Simon Game</h1>
-	</div>
+
+	
 	<div class="row text-center">
 		<div class="col-xs-12">
 			<button class="btn btnTile" id="btnRed" onclick="highlightFor(this.id,'red',0.3)"></button>
@@ -91,6 +93,7 @@ color:black;
 		<div class="col-xs-12">
 			<button class="btn btnControl" id="btnStart" onclick="start()">Start</button>
 			<button class="btn btnControl" id="btnRules"  data-toggle="modal" data-target="#rules" onclick="rules()">Rules</button>
+			<button class="btn btnControl" id="share" data-toggle="modal" data-target="#shareModal">Share</button>
 		</div>
 	</div>
 
@@ -101,28 +104,7 @@ color:black;
 		</div>
 	</div>
 
-    <div id="footerSection" class="row text-center rowMargins">
-         <div style="margin: 20px 0;">
-					<a id="fb" class="btn btn-default shareButton" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
-				<i class="fa fa-facebook"></i>
-			</a>
-			<a id="wa" class="btn btn-default shareButton" href="whatsapp://send?text=https://KaushikDev.github.io/simonGame" onClick="soundHitSocialIcon.play()">
-				<i class="fa fa-whatsapp"></i>
-			</a>
-			<a id="tw" class="btn btn-default shareButton" href="https://twitter.com/home?status=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
-				<i class="fa fa-twitter" ></i>
-			</a>
-			<a id="li" class="btn btn-default shareButton" href="
-https://www.linkedin.com/shareArticle?url=https://KaushikDev.github.io/simonGame&title=simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
-				<i class="fa fa-linkedin" ></i>
-			</a>
-			<a id="ma" class="btn btn-default shareButton" href="mailto:?subject=simonGame.&amp;body=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
-				<i class="fa fa-envelope-o" ></i>
-			</a>
-			
-			</div>
-			 <p><i class="fa fa-copyright"></i>KaushikCodeArts 2019</p>
-	</div>
+
 	
 </div>
 
@@ -158,6 +140,49 @@ https://www.linkedin.com/shareArticle?url=https://KaushikDev.github.io/simonGame
     </div>
     
   </div>
+      <!-- Share Modal -->
+  <div class="modal fade" id="shareModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">Sharing is Caring</h4>
+        </div>
+        <div class="modal-body text-center">
+<div style="margin: 20px 0;">
+					<a id="fb" class="btn btn-default shareButton" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-facebook"></i>
+			</a>
+			<a id="wa" class="btn btn-default shareButton" href="whatsapp://send?text=https://KaushikDev.github.io/simonGame" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-whatsapp"></i>
+			</a>
+			<a id="tw" class="btn btn-default shareButton" href="https://twitter.com/home?status=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-twitter" ></i>
+			</a>
+			<a id="li" class="btn btn-default shareButton" href="
+https://www.linkedin.com/shareArticle?url=https://KaushikDev.github.io/simonGame&title=simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-linkedin" ></i>
+			</a>
+			<a id="ma" class="btn btn-default shareButton" href="mailto:?subject=simonGame.&amp;body=https://KaushikDev.github.io/simonGame" target="_blank" onClick="soundHitSocialIcon.play()">
+				<i class="fa fa-envelope-o" ></i>
+			</a>
+			
+			</div>
+			 <p><i class="fa fa-copyright"></i>KaushikCodeArts 2019</p>
+			
+		  
+          </div>
+       <div class="modal-footer text-center">
+	  	
+		  <button class="btn btn-default" data-dismiss="modal">Exit</button>
+	   </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Share Modal Ends-->
 <script src="logic.js">
 
 </script>
