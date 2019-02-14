@@ -1,4 +1,4 @@
-var arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow"];
+var arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow", "btnPink", "btnGray"];
 var rand;
 var playAICount=1;
 var playHumanCount=0;
@@ -15,13 +15,15 @@ document.getElementById("btnBlue").disabled= true;
 document.getElementById("btnRed").disabled= true;
 document.getElementById("btnGreen").disabled= true;
 document.getElementById("btnYellow").disabled= true;
+document.getElementById("btnPink").disabled= true;
+document.getElementById("btnGray").disabled= true;
 document.getElementById("finalMsg").innerHTML="";
 
 document.getElementById("scoreInput").value='--';
 document.getElementById("scoreInput").disabled=true;
 document.getElementById("btnStart").innerHTML="Start";
 
-arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow"];
+arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow", "btnPink", "btnGray"];
 rand=0;
 playAICount=1;
 playHumanCount=0;
@@ -41,6 +43,8 @@ document.getElementById("btnBlue").disabled= false;
 document.getElementById("btnRed").disabled= false;
 document.getElementById("btnGreen").disabled= false;
 document.getElementById("btnYellow").disabled= false;
+document.getElementById("btnPink").disabled= false;
+document.getElementById("btnGray").disabled= false;
 document.getElementById("btnStart").innerHTML="Stop";
 //document.getElementById("btnStrict").disabled = true;
 document.getElementById("scoreInput").disabled=false;
@@ -146,7 +150,7 @@ function sequence(val, callback){
 //works like charm inside this // comment
 var counter=0;
 t1 = setInterval(function(){
-rand=getRandomBtnId(0,3);
+rand=getRandomBtnId(0,5);
 document.getElementById(arrBtnIds[rand]).click();
 
 playAIArray.push(arrBtnIds[rand]);
@@ -189,7 +193,14 @@ function highlightFor(id,color,seconds){
 	var audio = document.getElementById("audio4");
        audio.play();
 	   break;
-	   
+	 case "btnPink":
+	var audio = document.getElementById("audio3");
+       audio.play();
+	   break;
+case "btnGray":
+	var audio = document.getElementById("audio4");
+       audio.play();
+	   break;	   
 	}
 	//
     t2 = setTimeout(function(){
