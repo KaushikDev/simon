@@ -11,10 +11,10 @@ var score;
 var t, t1, t2;
 
 function init(){
-document.getElementById("btnBlue").disabled= true;
-document.getElementById("btnRed").disabled= true;
-document.getElementById("btnGreen").disabled= true;
-document.getElementById("btnYellow").disabled= true;
+// document.getElementById("btnBlue").disabled= true;
+// document.getElementById("btnRed").disabled= true;
+// document.getElementById("btnGreen").disabled= true;
+// document.getElementById("btnYellow").disabled= true;
 document.getElementById("finalMsg").innerHTML="SIMON GAME";
 
 document.getElementById("scoreInput").innerHTML="SCORE : --";

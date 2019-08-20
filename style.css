@@ -17,11 +17,11 @@
 }
 
 body{
-    background:#fff ;
+    background:#0cbbf0 ;
     font-size:2em;
     font-weight: bold;
     text-shadow: 2px 2px 2px black;
-    color:#33B0FF;
+    color:#fff;
     padding-top:10px;
     font-family: 'Orbitron', sans-serif;
     }
@@ -75,11 +75,11 @@ body{
 
     @media (min-width:451px) and (max-width:550px){
         body{
-            background: #fff;
+            background: #0cbbf0;
             font-size:1.2em;
             font-weight: bold;
             text-shadow: 2px 2px 2px black;
-            color:#33B0FF;
+            color:#fff;
             padding-top:10px;
             font-family: 'Orbitron', sans-serif;
             }
@@ -105,11 +105,11 @@ body{
 
     @media (min-width:551px) and (max-width:650px){
         body{
-            background: #fff;
+            background: #0cbbf0;
             font-size:1.2em;
             font-weight: bold;
             text-shadow: 2px 2px 2px black;
-            color:#33B0FF;
+            color:#fff;
             padding-top:10px;
             font-family: 'Orbitron', sans-serif;
             }
@@ -135,11 +135,11 @@ body{
 
     @media (min-width:401px) and (max-width:450px){
         body{
-            background: #fff;
+            background: #0cbbf0;
             font-size:1.2em;
             font-weight: bold;
             text-shadow: 2px 2px 2px black;
-            color:#33B0FF;
+            color:#fff;
             padding-top:10px;
             font-family: 'Orbitron', sans-serif;
             }
@@ -165,11 +165,11 @@ body{
 
     @media (min-width:320px) and (max-width:400px){
         body{
-            background: #fff;
+            background: #0cbbf0;
             font-size:1.2em;
             font-weight: bold;
             text-shadow: 2px 2px 2px black;
-            color:#33B0FF;
+            color:#fff;
             padding-top:10px;
             font-family: 'Orbitron', sans-serif;
             }
