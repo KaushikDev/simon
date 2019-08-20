@@ -15,15 +15,13 @@ document.getElementById("btnBlue").disabled= true;
 document.getElementById("btnRed").disabled= true;
 document.getElementById("btnGreen").disabled= true;
 document.getElementById("btnYellow").disabled= true;
-document.getElementById("btnPink").disabled= true;
-document.getElementById("btnGray").disabled= true;
-document.getElementById("finalMsg").innerHTML="";
+document.getElementById("finalMsg").innerHTML="SIMON GAME";
 
-document.getElementById("scoreInput").value='--';
+document.getElementById("scoreInput").innerHTML="SCORE : --";
 document.getElementById("scoreInput").disabled=true;
 document.getElementById("btnStart").innerHTML="Start";
 
-arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow", "btnPink", "btnGray"];
+arrBtnIds=["btnRed", "btnGreen", "btnBlue", "btnYellow"];
 rand=0;
 playAICount=1;
 playHumanCount=0;
@@ -43,12 +41,10 @@ document.getElementById("btnBlue").disabled= false;
 document.getElementById("btnRed").disabled= false;
 document.getElementById("btnGreen").disabled= false;
 document.getElementById("btnYellow").disabled= false;
-document.getElementById("btnPink").disabled= false;
-document.getElementById("btnGray").disabled= false;
 document.getElementById("btnStart").innerHTML="Stop";
-//document.getElementById("btnStrict").disabled = true;
+document.getElementById("finalMsg").innerHTML="LEVEL : 1";
 document.getElementById("scoreInput").disabled=false;
-document.getElementById("scoreInput").value='00';
+document.getElementById("scoreInput").innerHTML="SCORE : 00";
 playAIArray=[];
 playHumanArray=[];
 playAI();
@@ -131,17 +127,17 @@ flag=false;
 console.log("compare flag is :" + flag);
 if((playHumanArray.length===playAIArray.length) && (flag===true)){
 console.log("round # "+playAICount+" clear. Proceed to next round"); // feed scoring here
-document.getElementById("finalMsg").innerHTML="Level # " + playAICount + " cleared . !!"
-document.getElementById("scoreInput").value='0'+playAICount;
+document.getElementById("finalMsg").innerHTML="LEVEL : " + (playAICount+1);
+document.getElementById("scoreInput").innerHTML="SCORE : "+(playAICount*5);
 playAICount++;
 playAI();
 }
 else if((playHumanArray.length===playAIArray.length) && (flag!=true)){
 console.log("human loses"); //feed losing buzzer here
-document.getElementById("finalMsg").innerHTML="Oops !! That is wrong !! Try again.";
+document.getElementById("finalMsg").innerHTML="GAME OVER";
 var audio = document.getElementById("audio5");
        audio.play();
-document.getElementById("scoreInput").value='--';
+// document.getElementById("scoreInput").innerHTML='--';
 document.getElementById("btnStart").innerHTML="Restart";
 }
 }
@@ -150,7 +146,7 @@ function sequence(val, callback){
 //works like charm inside this // comment
 var counter=0;
 t1 = setInterval(function(){
-rand=getRandomBtnId(0,5);
+rand=getRandomBtnId(0,3);
 document.getElementById(arrBtnIds[rand]).click();
 
 playAIArray.push(arrBtnIds[rand]);
@@ -193,14 +189,7 @@ function highlightFor(id,color,seconds){
 	var audio = document.getElementById("audio4");
        audio.play();
 	   break;
-	 case "btnPink":
-	var audio = document.getElementById("audio3");
-       audio.play();
-	   break;
-case "btnGray":
-	var audio = document.getElementById("audio4");
-       audio.play();
-	   break;	   
+   
 	}
 	//
     t2 = setTimeout(function(){

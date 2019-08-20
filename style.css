@@ -1,0 +1,194 @@
+
+
+.container{
+    vertical-align: middle;
+}
+
+#resultSection{
+    height: 10%;
+}
+#tilesSection{
+    height: 80%;
+    display: flex;
+    align-items: center;
+ }
+#buttonSection{
+    height: 10%;
+}
+
+body{
+    background:#fff ;
+    font-size:2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+    color:#33B0FF;
+    padding-top:10px;
+    font-family: 'Orbitron', sans-serif;
+    }
+    
+    .shareButton{
+    border-color:transparent;
+    background-color:transparent;
+    font-size:20px;
+    color:black;
+    } 
+    
+    .btnTile{
+    border:2px black solid;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;  
+    box-shadow: 2px 10px 10px gray;  
+    }
+    
+    #btnRed{
+    background-color:firebrick;
+    }
+    #btnGreen{
+    background-color:green;
+    }
+    #btnYellow{
+    background-color:goldenrod;
+    }
+    #btnBlue{
+    background-color:indigo;
+    }
+  
+      
+    .btnControl{
+    background-color:transparent;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+    }
+    
+    .modal-content{
+    color:black;
+    text-shadow: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+
+
+
+    @media (min-width:451px) and (max-width:550px){
+        body{
+            background: #fff;
+            font-size:1.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+            color:#33B0FF;
+            padding-top:10px;
+            font-family: 'Orbitron', sans-serif;
+            }
+            
+            .shareButton{
+            border-color:transparent;
+            background-color:transparent;
+            font-size:20px;
+            color:black;
+            } 
+            
+            .btnTile{
+            border:2px black solid;
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;  
+            box-shadow: 2px 10px 10px gray;  
+            }
+              
+
+    }
+
+    @media (min-width:551px) and (max-width:650px){
+        body{
+            background: #fff;
+            font-size:1.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+            color:#33B0FF;
+            padding-top:10px;
+            font-family: 'Orbitron', sans-serif;
+            }
+            
+            .shareButton{
+            border-color:transparent;
+            background-color:transparent;
+            font-size:20px;
+            color:black;
+            } 
+            
+            .btnTile{
+            border:2px black solid;
+            padding: 10px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;  
+            box-shadow: 2px 10px 10px gray;  
+            }
+              
+
+    }
+
+    @media (min-width:401px) and (max-width:450px){
+        body{
+            background: #fff;
+            font-size:1.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+            color:#33B0FF;
+            padding-top:10px;
+            font-family: 'Orbitron', sans-serif;
+            }
+            
+            .shareButton{
+            border-color:transparent;
+            background-color:transparent;
+            font-size:20px;
+            color:black;
+            } 
+            
+            .btnTile{
+            border:2px black solid;
+            padding: 10px;
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;  
+            box-shadow: 2px 10px 10px gray;  
+            }
+              
+
+    }
+
+    @media (min-width:320px) and (max-width:400px){
+        body{
+            background: #fff;
+            font-size:1.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+            color:#33B0FF;
+            padding-top:10px;
+            font-family: 'Orbitron', sans-serif;
+            }
+            
+            .shareButton{
+            border-color:transparent;
+            background-color:transparent;
+            font-size:20px;
+            color:black;
+            } 
+            
+            .btnTile{
+            border:2px black solid;
+            padding: 10px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;  
+            box-shadow: 2px 10px 10px gray;  
+            }
+              
+
+    }
